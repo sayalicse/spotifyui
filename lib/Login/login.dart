@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:spotifyui/widget/uihelper.dart';
 
@@ -180,7 +181,34 @@ class Login extends StatelessWidget{
                 ),
               ),
               SizedBox(height: 10,),
-              Text('Log In',style: TextStyle(color: Colors.white,fontSize: 15),)
+              Text('Log In',style: TextStyle(color: Colors.white,fontSize: 15),),
+              SizedBox(height: 10,),
+              RichText(
+                text: TextSpan(
+                  text: "Don't have an account? ",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 14,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'Sign Up',
+                      style: TextStyle(
+                        color: Colors.blueAccent, // or any color you like
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline, // optional
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          // TODO: Navigate to sign up page
+                          print("Sign Up tapped");
+                        },
+                    ),
+                  ],
+                ),
+              )
+
 
 
 
