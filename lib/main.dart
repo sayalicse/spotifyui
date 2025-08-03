@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Home/home.dart';
 import 'Login/login.dart';
 import 'Splash/splashscreen.dart';
 import 'bottomnavigation/bottomnavigation.dart'; // ✅ Correct relative import
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Spotify',
       theme: ThemeData.dark(),
-      home: BottomNavigation(), // Now SplashScreen will be recognized
+      home: HomePage(), // Now SplashScreen will be recognized
     );
   }
 }
