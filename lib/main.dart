@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Spotify',
       theme: ThemeData.dark(),
-      home: HomePage(), // Now SplashScreen will be recognized
+      home: SplashScreen(), // Now SplashScreen will be recognized
     );
   }
 }
