@@ -1,56 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:spotifyui/widget/uihelper.dart';
 
-class SearchPage extends StatelessWidget{
+class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black, // background to see white search bar
       appBar: AppBar(
+        title: Text("Search"),
         backgroundColor: Colors.black,
-        toolbarHeight: 70,
-        title: Row(
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CircleAvatar(
-              radius: 18, // Smaller radius
-              backgroundColor: Colors.brown,
-              child: ClipOval(
-                child: Image.asset(
-                  'assets/images/sletter.png',
-                  width: 30,
-                  height: 30,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            SizedBox(width: 10),
             Text(
-              'Search',
+              'Start browsing',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 19,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            
-          ],
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.camera_alt_outlined),
-            onPressed: () {
-              // Your onPressed logic here
-            },
-          ),
-        ],
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              width: 400,
+            SizedBox(height: 10), // Spacing between text and search bar
+            Container(
+              width: double.infinity,
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -69,16 +44,9 @@ class SearchPage extends StatelessWidget{
                 ],
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('Start browsing',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
-          )
-
-        ],
+          ],
+        ),
       ),
-
     );
   }
-
 }
