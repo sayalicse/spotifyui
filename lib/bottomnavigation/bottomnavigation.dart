@@ -20,7 +20,7 @@ class _BottomnavigationState extends State {
     HomePage(),
     SearchPage(),
     LibraryPage(),
-    PremiumPage(),
+    SpotifyPremiumOffer(),
     CreatePage()
   ];
   @override

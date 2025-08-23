@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'Home/home.dart';
+import 'Library/library.dart';
 import 'Login/login.dart';
 import 'Search/search.dart';
 import 'Splash/splashscreen.dart';
+import 'Spotify/spotify.dart';
 import 'bottomnavigation/bottomnavigation.dart'; // ✅ Correct relative import
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Spotify',
       theme: ThemeData.dark(),
-      home: SearchPage(), // Now SplashScreen will be recognized
+      home: SpotifyPremiumOffer(), // Now SplashScreen will be recognized
     );
   }
 }

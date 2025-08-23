@@ -1,212 +1,594 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class SearchPage extends StatelessWidget {
-  const SearchPage({super.key});
-
+class SearchPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> cardItems = [
-      {'text': "Music", 'color': const Color(0xFFFE019A), 'image': 'assets/images/femsinger.jpg'},
-      {'text': "Podcasts", 'color': const Color(0xFF006241), 'image': 'assets/images/podcast.jpg'},
-      {'text': "Live Events", 'color': const Color(0xFFb81ef0), 'image': 'assets/images/livee.jpg'},
-      {'text': "Home of\nI-Pop", 'color': const Color(0xFF17236a), 'image': 'assets/images/femsinger.jpg'},
-      {'text': "Trending", 'color': Colors.orange, 'image': 'assets/images/podcast.jpg'},
-      {'text': "Workout", 'color': Colors.red, 'image': 'assets/images/livee.jpg'},
-      {'text': "Relax", 'color': Colors.teal, 'image': 'assets/images/femsinger.jpg'},
-      {'text': "Study", 'color': Colors.blue, 'image': 'assets/images/podcast.jpg'},
-      {'text': "Travel", 'color': Colors.purple, 'image': 'assets/images/livee.jpg'},
-      {'text': "Favorites", 'color': Colors.green, 'image': 'assets/images/femsinger.jpg'},
-    ];
-
-    return Scaffold(
-      backgroundColor: Colors.black,
+  return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 50,
         backgroundColor: Colors.black,
+        elevation: 0,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: CircleAvatar(
+            radius: 8,
             backgroundColor: Colors.brown,
-            child: ClipOval(
-              child: Image.asset('assets/images/slett.png', fit: BoxFit.cover, width: 36, height: 36),
+            backgroundImage: AssetImage('assets/images/slett.png'),
+          ),
+        ),
+        title: Text('Search',style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.camera_alt, color: Colors.white),
+            onPressed: () {
+              // Handle camera click
+            },
+          ),
+        ],
+      ),
+    body: SingleChildScrollView(
+      child:
+    Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
+            alignment: Alignment.centerLeft, // Forces it to left
+            child: Container(
+              width: 400,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10), // Rounded corners
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(Icons.search, color: Colors.grey),
+                  SizedBox(width: 8),
+                  Text(
+                    "What do you want to listen to",
+                    style: TextStyle(color: Colors.grey, fontSize: 14),
+                    overflow: TextOverflow.ellipsis, // Avoid text overflow
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-        title: const Text("Search", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
-        actions: [IconButton(icon: const Icon(Icons.camera_alt), onPressed: () {})],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Search bar
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(8)),
-                child: const Row(
+
+        // SizedBox(height: 10,),
+
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Container(
+                width: 200,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: Colors.pink, // Card background
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Stack(
                   children: [
-                    Icon(Icons.search, color: Colors.grey),
-                    SizedBox(width: 10),
-                    Expanded(child: Text("What do you want to listen to?", style: TextStyle(color: Colors.grey))),
+                    // Text at top-left
+                    Positioned(
+                      top: 12,
+                      left: 12,
+                      child: Text(
+                        "Music",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Image at bottom-right
+                    Positioned(
+                      bottom: -3, // pull down a bit more
+                      right: 4,  // push right a bit more
+                      child: Transform.rotate(
+                        angle: 0.20, // stronger right tilt
+                        alignment: Alignment.bottomRight, // pivot from bottom-right corner
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Image.asset(
+                            'assets/images/femsinger.jpg',
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    )
+
+
+
+                  ],
+                ),
+              ),
+
+
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                width: 200,
+                height: 70,
+                decoration: BoxDecoration(
+                    color: Color(0xFF004526), // Card background
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Stack(
+                  children: [
+                    // Text at top-left
+                    Positioned(
+                      top: 12,
+                      left: 12,
+                      child: Text(
+                        "Podcasts",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Image at bottom-right
+                    Positioned(
+                      bottom: -3, // pull down a bit more
+                      right: 4,  // push right a bit more
+                      child: Transform.rotate(
+                        angle: 0.20, // stronger right tilt
+                        alignment: Alignment.bottomRight, // pivot from bottom-right corner
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Image.asset(
+                            'assets/images/podcast.jpg',
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    )
+
+
+
+                  ],
+                ),
+              ),
+
+            ],
+          ),
+        ),
+        // SizedBox(height: 10,),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Container(
+                width: 200,
+                height: 70,
+                decoration: BoxDecoration(
+                    color: Color(0xFF7F00FF), // Card background
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Stack(
+                  children: [
+                    // Text at top-left
+                    Positioned(
+                      top: 12,
+                      left: 12,
+                      child: Text(
+                        "Live Events",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Image at bottom-right
+                    Positioned(
+                      bottom: -3, // pull down a bit more
+                      right: 4,  // push right a bit more
+                      child: Transform.rotate(
+                        angle: 0.20, // stronger right tilt
+                        alignment: Alignment.bottomRight, // pivot from bottom-right corner
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Image.asset(
+                            'assets/images/hindimusic.jpg',
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    )
+
+
+
+                  ],
+                ),
+              ),
+
+
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                width: 200,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: Color(0xFF082567),
+                  // Card background
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Stack(
+                  children: [
+                    // Text at top-left
+                    Positioned(
+                      top: 12,
+                      left: 12,
+                      child: Text(
+                        "Home of \n I-Pop",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // Image at bottom-right
+                    Positioned(
+                      bottom: -3, // pull down a bit more
+                      right: 4,  // push right a bit more
+                      child: Transform.rotate(
+                        angle: 0.20, // stronger right tilt
+                        alignment: Alignment.bottomRight, // pivot from bottom-right corner
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5),
+                          child: Image.asset(
+                            'assets/images/hindimusic.jpg',
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    )
+
+
+
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 8,),
+        Row(
+          children: [
+             Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: ClipRRect(
+                 borderRadius: BorderRadius.circular(8), // adjust radius as needed
+                 child: Image.asset(
+                   'assets/images/hindimusic.jpg',
+                   width: 50,
+                   height: 50,
+                   fit: BoxFit.cover,
+                 ),
+               )
+
+             ),
+            SizedBox(width: 10,),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RichText(
+                  text: TextSpan(
+                    text: 'Advertisement',
+                    style: TextStyle(color: Colors.grey, fontSize: 12),
+                  ),
+                ),
+                SizedBox(height: 4), // spacing between texts
+                Text(
+                  'Anirudh Ravichander',
+                  style: TextStyle(color: Colors.white, fontSize: 16,fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            SizedBox(width: 140,),
+            Icon(Icons.more_vert, color: Colors.white, size: 20),
+
+          ],
+        ),
+        SizedBox(height: 5,),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
+            alignment: Alignment.centerLeft, // places container at the start
+            child: Container(
+              width: 410,
+              height: 150,
+              decoration: BoxDecoration(
+                color: Color(0xFF452C63).withOpacity(0.3),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0), // spacing from edges
+                child: Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            'assets/images/hindimusic.jpg',
+                            width: 60, // small box size
+                            height: 60,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(width: 12),
+                       // space between image & text
+                        Expanded(
+                          child: Text(
+                            "Viral Global Hit Song",
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20,),
+                    Row(
+                      children: [
+                        Text('Anirudh Ravichander',style: TextStyle(color: Colors.blueGrey,fontWeight: FontWeight.normal),),
+                        SizedBox(width: 100,),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF452C63), // button background color
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8), // optional rounded corners
+                            ),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12), // optional padding
+                          ),
+                          child: Text(
+                            'Listen now',
+                            style: TextStyle(
+                              color: Colors.white, // text color
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        )
+
+                      ],
+                    )
                   ],
                 ),
               ),
             ),
-            // Start browsing
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text('Start browsing', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-            ),
-            const SizedBox(height: 10),
-            _buildCardRow(
-              leftText: "Music", leftColor: const Color(0xFFFE019A), leftImage: 'assets/images/femsinger.jpg',
-              rightText: "Podcasts", rightColor: const Color(0xFF006241), rightImage: 'assets/images/podcast.jpg',
-            ),
-            const SizedBox(height: 15),
-            _buildCardRow(
-              leftText: "Live Events", leftColor: const Color(0xFFb81ef0), leftImage: 'assets/images/livee.jpg',
-              rightText: "Home of\n I-Pop", rightColor: const Color(0xFF17236a), rightImage: 'assets/images/femsinger.jpg',
-            ),
-            const SizedBox(height: 10),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text('Discover something new', style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold)),
-            ),
-            const SizedBox(height: 10),
-            SizedBox(height: 120, child: VideoListWidget()),
-            const SizedBox(height: 5),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text('Browse all', style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold)),
-            ),
-            // Browse all grid
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: cardItems.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10, childAspectRatio: 3 / 1,
-                ),
-                itemBuilder: (context, index) {
-                  final item = cardItems[index];
-                  return _buildGridCard(text: item['text'], color: item['color'], imagePath: item['image']);
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  static Widget _buildCardRow({
-    required String leftText, required Color leftColor, required String leftImage,
-    required String rightText, required Color rightColor, required String rightImage,
-  }) {
-    return Row(
-      children: [
-        _buildCard(leftText, leftColor, leftImage),
-        const SizedBox(width: 15),
-        _buildCard(rightText, rightColor, rightImage),
-      ],
-    );
-  }
-
-  static Widget _buildCard(String text, Color color, String imagePath) {
-    return Stack(
-      children: [
-        Container(height: 70, width: 190, decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(8))),
-        Positioned(top: 8, left: 8, child: Text(text, style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold))),
-        Positioned(
-          bottom: -5,
-          right: -5,
-          child: Transform.rotate(
-            angle: 0.3,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(imagePath, height: 60, width: 60, fit: BoxFit.cover),
-            ),
           ),
         ),
-      ],
-    );
-  }
+        SizedBox(height: 10,),
+        // Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Align(
+        //     alignment: Alignment.centerLeft,
+        //       child: Text('Discover something new',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15),)),
+        // ),
+        Container(
+          height: 200,
+          width: double.infinity,
+          child: DiscoverVideos(),
 
-  static Widget _buildGridCard({required String text, required Color color, required String imagePath}) {
-    return Container(
-      height: 70,
-      width: 200,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey, width: 1),
-        borderRadius: BorderRadius.circular(8),
-        color: color,
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            bottom: -5,
-            right: -5,
-            child: Transform.rotate(
-              angle: 0.3,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(imagePath, height: 60, width: 60, fit: BoxFit.cover),
-              ),
+        ),
+        SizedBox(height: 10,),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Browse all',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15),)),
+        ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Container(
+            width: 500,
+            height: 1000,
+            child: GridView.count(
+              crossAxisCount: 2,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              padding: EdgeInsets.all(12),
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              childAspectRatio: 200 / 70,
+
+              children: () {
+                // 🎨 Different colors
+                final List<Color> cardColors = [
+                  Color(0xFF082567), // Navy blue
+                  Color(0xFF452C63), // Purple
+                  Color(0xFF7F00FF), // Violet
+                  Color(0xFF004526), // Dark green
+                  Color(0xFF1E90FF), // Dodger blue
+                  Color(0xFFFF5722), // Orange
+                ];
+
+                // 📝 Different texts + images
+                final List<Map<String, String>> cardData = [
+                  {"title": "Made For You", "image": "assets/images/hindimusic.jpg"},
+                  {"title": "New Releases", "image": "assets/images/podcast.jpg"},
+                  {"title": "Rain & Monsoon", "image": "assets/images/femsinger.jpg"},
+                  {"title": "Hindi", "image": "assets/images/hindimusic.jpg"},
+                  {"title": "Telugu", "image": "assets/images/podcast.jpg"},
+                  {"title": "Upcoming Releases", "image": "assets/images/femsinger.jpg"},
+                  {"title": "Summer", "image": "assets/images/hindimusic.jpg"},
+                  {"title": "Bhojpuri", "image": "assets/images/podcast.jpg"},
+                  {"title": "Ghazals", "image": "assets/images/femsinger.jpg"},
+                  {"title": "Malayalam", "image": "assets/images/hindimusic.jpg"},
+                  {"title": "Tamil", "image": "assets/images/podcast.jpg"},
+                  {"title": "Video Podcast", "image": "assets/images/femsinger.jpg"},
+                  {"title": "Summer", "image": "assets/images/hindimusic.jpg"},
+                  {"title": "Pop", "image": "assets/images/podcast.jpg"},
+                  {"title": "Love", "image": "assets/images/femsinger.jpg"},
+                  {"title": "Trending", "image": "assets/images/hindimusic.jpg"},
+                  {"title": "Mood", "image": "assets/images/podcast.jpg"},
+                  {"title": "Party", "image": "assets/images/femsinger.jpg"},
+                ];
+
+                return List.generate(cardData.length, (index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: cardColors[index % cardColors.length],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          top: 12,
+                          left: 12,
+                          child: Text(
+                            cardData[index]["title"]!,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          bottom: -3,
+                          right: 4,
+                          child: Transform.rotate(
+                            angle: 0.20,
+                            alignment: Alignment.bottomRight,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+                              child: Image.asset(
+                                cardData[index]["image"]!,
+                                width: 50,
+                                height: 50,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                });
+              }(),
             ),
           ),
-          Positioned(
-            top: 8,
-            left: 8,
-            child: Text(text, style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
-          ),
-        ],
-      ),
-    );
+        )
+
+      ],
+    ),
+    )
+
+  );
   }
+
 }
 
-class VideoListWidget extends StatelessWidget {
-  final List<Map<String, String>> videos = [
-    {"url": "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4", "hashtags": "#love #romantic"},
-    {"url": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4", "hashtags": "#nature #wildlife"},
-    {"url": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4", "hashtags": "#art #creative"},
-  ];
+class DiscoverVideos extends StatelessWidget {
+  const DiscoverVideos({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: videos.length,
-      itemBuilder: (context, index) => VideoItem(videoUrl: videos[index]["url"]!, hashtags: videos[index]["hashtags"]!),
+    // 🌍 Example video URLs (replace with your own links)
+    final List<Map<String, dynamic>> videoItems = [
+      {"videoUrl": "https://cdn.pixabay.com/video/2025/01/10/251873_tiny.mp4"},
+      {"videoUrl": "https://cdn.pixabay.com/video/2023/04/24/160342-820741249_tiny.mp4"},
+      {"videoUrl": "https://media.istockphoto.com/id/2121501112/video/cheetah-extends-in-the-heart-of-the-kenyan-savannah.mp4?s=mp4-640x640-is&k=20&c=ax89e64xHAGnWhGqkWYEW77K892NDry2fhspmisGauI="},
+      {"videoUrl": "https://cdn.pixabay.com/video/2025/01/10/251873_tiny.mp4"},
+      {"videoUrl": "https://cdn.pixabay.com/video/2023/04/24/160342-820741249_tiny.mp4"},
+      {"videoUrl": "https://media.istockphoto.com/id/2121501112/video/cheetah-extends-in-the-heart-of-the-kenyan-savannah.mp4?s=mp4-640x640-is&k=20&c=ax89e64xHAGnWhGqkWYEW77K892NDry2fhspmisGauI="},
+      {"videoUrl": "https://cdn.pixabay.com/video/2025/01/10/251873_tiny.mp4"},
+      {"videoUrl": "https://cdn.pixabay.com/video/2023/04/24/160342-820741249_tiny.mp4"},
+      {"videoUrl": "https://media.istockphoto.com/id/2121501112/video/cheetah-extends-in-the-heart-of-the-kenyan-savannah.mp4?s=mp4-640x640-is&k=20&c=ax89e64xHAGnWhGqkWYEW77K892NDry2fhspmisGauI="},
+      {"videoUrl": "https://cdn.pixabay.com/video/2025/01/10/251873_tiny.mp4"},
+      {"videoUrl": "https://cdn.pixabay.com/video/2023/04/24/160342-820741249_tiny.mp4"},
+      {"videoUrl": "https://media.istockphoto.com/id/2121501112/video/cheetah-extends-in-the-heart-of-the-kenyan-savannah.mp4?s=mp4-640x640-is&k=20&c=ax89e64xHAGnWhGqkWYEW77K892NDry2fhspmisGauI="},
+      {"videoUrl": "https://cdn.pixabay.com/video/2025/01/10/251873_tiny.mp4"},
+      {"videoUrl": "https://cdn.pixabay.com/video/2023/04/24/160342-820741249_tiny.mp4"},
+      {"videoUrl": "https://media.istockphoto.com/id/2121501112/video/cheetah-extends-in-the-heart-of-the-kenyan-savannah.mp4?s=mp4-640x640-is&k=20&c=ax89e64xHAGnWhGqkWYEW77K892NDry2fhspmisGauI="},
+      {"videoUrl": "https://cdn.pixabay.com/video/2025/01/10/251873_tiny.mp4"},
+      {"videoUrl": "https://cdn.pixabay.com/video/2023/04/24/160342-820741249_tiny.mp4"},
+      {"videoUrl": "https://media.istockphoto.com/id/2121501112/video/cheetah-extends-in-the-heart-of-the-kenyan-savannah.mp4?s=mp4-640x640-is&k=20&c=ax89e64xHAGnWhGqkWYEW77K892NDry2fhspmisGauI="},
+
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            'Discover something new',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 160,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: videoItems.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: VideoCard(videoUrl: videoItems[index]["videoUrl"]),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
 
-class VideoItem extends StatefulWidget {
+class VideoCard extends StatefulWidget {
   final String videoUrl;
-  final String hashtags;
-  const VideoItem({Key? key, required this.videoUrl, required this.hashtags}) : super(key: key);
+
+  const VideoCard({super.key, required this.videoUrl});
 
   @override
-  _VideoItemState createState() => _VideoItemState();
+  _VideoCardState createState() => _VideoCardState();
 }
 
-class _VideoItemState extends State<VideoItem> {
+class _VideoCardState extends State<VideoCard> {
   late VideoPlayerController _controller;
+  late Future<void> _initializeVideo;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.videoUrl)
-      ..initialize().then((_) {
-        setState(() {});
-        _controller.play();
-        _controller.setLooping(true);
-      });
+    // 🎥 Use network URL instead of assets
+    _controller = VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
+    _initializeVideo = _controller.initialize().then((_) {
+      _controller.setLooping(true);
+      _controller.setVolume(0.0); // muted autoplay
+      _controller.play();
+      setState(() {});
+    });
   }
 
   @override
@@ -217,38 +599,32 @@ class _VideoItemState extends State<VideoItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 90,
-      margin: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.black12,
-        border: Border.all(color: Colors.grey, width: 0.5),
-      ),
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: _controller.value.isInitialized
-                  ? FittedBox(
-                fit: BoxFit.cover,
-                child: SizedBox(
-                  width: _controller.value.size.width,
-                  height: _controller.value.size.height,
-                  child: VideoPlayer(_controller),
-                ),
-              )
-                  : const Center(child: CircularProgressIndicator()),
+    return FutureBuilder(
+      future: _initializeVideo,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Container(
+            width: 120,
+            height: 160,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.black,
             ),
-          ),
-          Positioned(
-            bottom: 4,
-            left: 4,
-            child: Text(widget.hashtags, style: const TextStyle(color: Colors.white, fontSize: 8, fontWeight: FontWeight.bold, backgroundColor: Colors.black54)),
-          ),
-        ],
-      ),
+            clipBehavior: Clip.antiAlias,
+            child: VideoPlayer(_controller),
+          );
+        } else {
+          return Container(
+            width: 120,
+            height: 160,
+            alignment: Alignment.center,
+            child: CircularProgressIndicator(color: Colors.white),
+          );
+        }
+      },
     );
   }
 }
+
+
+
