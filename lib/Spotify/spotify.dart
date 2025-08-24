@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class SpotifyPremiumOffer extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,17 +9,15 @@ class SpotifyPremiumOffer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 🔹 Background Image with Overlay Text
+            // 🔹 Banner Section
             Stack(
               children: [
-                // Background Image
                 Container(
-
                   height: 300,
-                  width: 400,
+                  width: double.infinity,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("assets/images/banner.jpg"), // Your image path
+                      image: AssetImage("assets/images/banner.jpg"),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -37,7 +33,7 @@ class SpotifyPremiumOffer extends StatelessWidget {
                       Row(
                         children: [
                           Image.asset(
-                            "assets/images/spoti.png", // Use Spotify logo if you want
+                            "assets/images/spoti.png",
                             height: 24,
                             width: 24,
                           ),
@@ -56,7 +52,7 @@ class SpotifyPremiumOffer extends StatelessWidget {
 
                       // Offer Heading
                       const Text(
-                        "Listen without limits. Try 3 \n months of Premium Individual \n for ₹139 with Spotify.",
+                        "Listen without limits. Try 3 \nmonths of Premium Individual \nfor ₹139 with Spotify.",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
@@ -66,7 +62,7 @@ class SpotifyPremiumOffer extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
 
-                      // Limited Time Offer Button
+                      // Limited Time Offer Tag
                       Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 12, vertical: 6),
@@ -101,14 +97,15 @@ class SpotifyPremiumOffer extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: SizedBox(
-                width: 350,
+                width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: const Color(0xFFF7CAD0),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(40), // Elliptical shape
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 14),
+                    elevation: 0,
                   ),
                   onPressed: () {},
                   child: const Text(
@@ -128,10 +125,12 @@ class SpotifyPremiumOffer extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                "₹139 for 3 months, then ₹139 per month after. Offer only available if you \n haven’t tried Premium before and you subscribe via Spotify. Offers via \n Google Play may differ. Terms apply.\n\nOffer ends 23 September 2025.",
+                "₹139 for 3 months, then ₹139 per month after. Offer only available if you \n"
+                    "haven’t tried Premium before and you subscribe via Spotify. Offers via \n"
+                    "Google Play may differ. Terms apply.\n\nOffer ends 23 September 2025.",
                 style: TextStyle(
                   color: Colors.grey,
-                  fontSize: 10,
+                  fontSize: 11,
                   height: 1.5,
                 ),
               ),
@@ -140,145 +139,704 @@ class SpotifyPremiumOffer extends StatelessWidget {
 
             // 🔹 Why Join Premium Section
             Container(
-              width: 400,
-              height: 280,
-              color: Color(0xFF333333),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Why join Premium?",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              color: const Color(0xFF333333),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Why join Premium?",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(height: 10,),
-                    Row(
-                      children: [
-                        Icon(Icons.music_off,color: Colors.white,),
-                        SizedBox(width: 8,),
-                        Text('Ad-free music listening',style: TextStyle(color: Colors.white,fontSize: 10),)
-                      ],
-                    ),
-                    SizedBox(height: 8,),
-                    Row(
-                      children: [
-                        Icon(Icons.download,color: Colors.white,),
-                        SizedBox(width: 8,),
-                        Text('Download to listen offline',style: TextStyle(color: Colors.white,fontSize: 10),)
-                      ],
-                    ),
-                    SizedBox(height: 8,),
-                    Row(
-                      children: [
-                        Icon(Icons.shuffle,color: Colors.white,),
-                        SizedBox(width: 8,),
-                        Text('Play songs in any order',style: TextStyle(color: Colors.white,fontSize: 10),)
-                      ],
-                    ),
-                    SizedBox(height: 8,),
-                    Row(
-                      children: [
-                        Icon(Icons.headset_outlined,color: Colors.white,),
-                        SizedBox(width: 8,),
-                        Text('High audio quality',style: TextStyle(color: Colors.white,fontSize: 10),)
-                      ],
-                    ),
-                    SizedBox(height: 8,),
-                    Row(
-                      children: [
-                        Icon(Icons.groups,color: Colors.white,),
-                        SizedBox(width: 8,),
-                        Text('Listen with friends in real time',style: TextStyle(color: Colors.white,fontSize: 10),)
-                      ],
-                    ),
-                    SizedBox(height: 8,),
-                    Row(
-                      children: [
-                        Icon(Icons.playlist_play,color: Colors.white,),
-                        SizedBox(width: 8,),
-                        Text('Listen with friends in real time',style: TextStyle(color: Colors.white,fontSize: 10),)
-                      ],
-                    ),
-
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 14),
+                  _buildFeature(Icons.music_off, "Ad-free music listening"),
+                  _buildFeature(Icons.download, "Download to listen offline"),
+                  _buildFeature(Icons.shuffle, "Play songs in any order"),
+                  _buildFeature(Icons.headset_outlined, "High audio quality"),
+                  _buildFeature(Icons.groups, "Listen with friends in real time"),
+                  _buildFeature(Icons.playlist_play, "Organise listening queue"),
+                ],
               ),
-              
-
-
             ),
-            Padding(padding: const EdgeInsets.all(8.0),
-              child: Text('Available plans',style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold
-              ),)
-              ,
 
+            // 🔹 Available Plans Heading
+            const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                'Available plans',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+
+            // 🔹 Premium Individual Plan Card
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: 400,
-                height: 450,
-                color: Color(0xFF333333),
-
-                child:
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  // 🔹 Main Card Container
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF333333),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(
-                          "assets/images/spoti.png", // Use Spotify logo if you want
-                          height: 15,
-                          width: 15,
-
+                        // Premium Label
+                        SizedBox(height: 25,),
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/spoti.png",
+                              height: 18,
+                              width: 18,
+                            ),
+                            const SizedBox(width: 6),
+                            const Text(
+                              "Premium",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 6),
+                        const SizedBox(height: 10),
+
                         const Text(
-                          "Premium",
+                          'Individual',
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
+                            color: Color(0xFFF7CAD0),
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        const SizedBox(height: 8),
 
+                        const Text(
+                          '₹139 for 3 months',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Text(
+                          '₹139/month after',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 11,
+                          ),
+                        ),
+                        // const SizedBox(height: 12),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 6.0),
+                          child: Container(
+                            height: 0.2,
+                            width: double.infinity, // You can adjust based on your design
+                            color: Colors.white,
+                          ),
+                        ),
+
+                        const Text('• 1 Premium account',
+                            style: TextStyle(color: Colors.white)),
+                        const Text('• Cancel anytime',
+                            style: TextStyle(color: Colors.white)),
+                        const Text('• Subscribe or one-time payment',
+                            style: TextStyle(color: Colors.white)),
+
+                        const SizedBox(height: 15),
+
+                        // Pink Button
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFF7CAD0),
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              elevation: 0,
+                            ),
+                            child: const Text(
+                              'Try 3 months for ₹139',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+
+                        // Transparent Button with White Border
+                        SizedBox(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              side: const BorderSide(color: Colors.white, width: 1),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                            ),
+                            child: const Text(
+                              'One-time payment',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        Text('₹139 for 3 months, then ₹139 per month after.'
+                            'Offer only available \n if you haven’t tried Premium before.'
+                            'and you subscribe via Spotify.\n Offers via Google Play may differ.For up to 6 family memebers \n residing at the same address.Terms apply'
+                          ,style: TextStyle(color: Colors.grey,fontSize: 10),)
                       ],
                     ),
-                    SizedBox(height: 10,),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('Individual',style: TextStyle(
-                          color: Color(0xFFF7CAD0),
-                          fontSize: 18,
-                        fontWeight: FontWeight.bold
-                      ),),
-                    )
-                  ],
-                ),
+                  ),
 
+                  // 🔹 Pink Top-Left Tag
+                  Positioned(
+                    top: 2,
+                    left: -1,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFF7CAD0), // Pink color
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8),
 
+                          bottomRight: Radius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        '₹139 for 3 months',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  // 🔹 Main Card Container
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF333333),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Premium Label
+                        SizedBox(height: 25,),
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/spoti.png",
+                              height: 18,
+                              width: 18,
+                            ),
+                            const SizedBox(width: 6),
+                            const Text(
+                              "Premium",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+
+                        const Text(
+                          'Family',
+                          style: TextStyle(
+                              color: Color(0xFF6CB4EE),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+
+                        const Text(
+                          '₹299 for 2 months',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Text(
+                          '₹299/month after',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 11,
+                          ),
+                        ),
+                        // const SizedBox(height: 12),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 6.0),
+                          child: Container(
+                            height: 0.2,
+                            width: double.infinity, // You can adjust based on your design
+                            color: Colors.white,
+                          ),
+                        ),
+
+                        const Text('• Up to 6 Premium accounts',
+                            style: TextStyle(color: Colors.white)),
+                        const Text('• Control content marked as explicit',
+                            style: TextStyle(color: Colors.white)),
+                        const Text('• Cancel anytime',
+                            style: TextStyle(color: Colors.white)),
+                        const Text('• Subscribe or one-time payment',
+                            style: TextStyle(color: Colors.white)),
+
+                        const SizedBox(height: 15),
+
+                        // Pink Button
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF6CB4EE),
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              elevation: 0,
+                            ),
+                            child: const Text(
+                              'Try 2 months for ₹299',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+
+                        // Transparent Button with White Border
+                        SizedBox(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              side: const BorderSide(color: Colors.white, width: 1),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                            ),
+                            child: const Text(
+                              'One-time payment',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        Text('₹139 for 3 months, then ₹139 per month after.'
+                            'Offer only available \n if you haven’t tried Premium before.'
+                          'and you subscribe via Spotify.\n Offers via Google Play may differ.For up to 6 family memebers \n residing at the same address.Terms apply'
+                          ,style: TextStyle(color: Colors.grey,fontSize: 10),)
+                      ],
+                    ),
+                  ),
+
+                  // 🔹 Pink Top-Left Tag
+                  Positioned(
+                    top: 2,
+                    left: -1,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF6CB4EE), // Pink color
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8),
+
+                          bottomRight: Radius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        '₹299 for 2 months',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  // 🔹 Main Card Container
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF333333),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Premium Label
+                        SizedBox(height: 25,),
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/spoti.png",
+                              height: 18,
+                              width: 18,
+                            ),
+                            const SizedBox(width: 6),
+                            const Text(
+                              "Premium",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+
+                        const Text(
+                          'Duo',
+                          style: TextStyle(
+                            color: Color(0xFFE4D00A),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+
+                        const Text(
+                          '₹179 for 2 months',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Text(
+                          '₹179/month after',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 11,
+                          ),
+                        ),
+                        // const SizedBox(height: 12),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 6.0),
+                          child: Container(
+                            height: 0.2,
+                            width: double.infinity, // You can adjust based on your design
+                            color: Colors.white,
+                          ),
+                        ),
+
+                        const Text('• 2 Premium accounts',
+                            style: TextStyle(color: Colors.white)),
+
+                        const Text('• Cancel anytime',
+                            style: TextStyle(color: Colors.white)),
+                        const Text('• Subscribe or one-time payment',
+                            style: TextStyle(color: Colors.white)),
+
+                        const SizedBox(height: 15),
+
+                        // Pink Button
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFE4D00A),
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              elevation: 0,
+                            ),
+                            child: const Text(
+                              'Try 2 months for ₹179',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+
+                        // Transparent Button with White Border
+                        SizedBox(
+                          width: double.infinity,
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              side: const BorderSide(color: Colors.white, width: 1),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                            ),
+                            child: const Text(
+                              'One-time payment',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        Text('₹139 for 3 months, then ₹139 per month after.'
+                            'Offer only available \n if you haven’t tried Premium before.'
+                            'and you subscribe via Spotify.\n Offers via Google Play may differ.For up to 6 family memebers \n residing at the same address.Terms apply'
+                          ,style: TextStyle(color: Colors.grey,fontSize: 10),)
+                      ],
+                    ),
+                  ),
+
+                  // 🔹 Pink Top-Left Tag
+                  Positioned(
+                    top: 2,
+                    left: -1,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFE4D00A), // Pink color
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8),
+
+                          bottomRight: Radius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        '₹179 for 2 months',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  // 🔹 Main Card Container
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF333333),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Premium Label
+                        SizedBox(height: 25,),
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/spoti.png",
+                              height: 18,
+                              width: 18,
+                            ),
+                            const SizedBox(width: 6),
+                            const Text(
+                              "Premium",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+
+                        const Text(
+                          'Student',
+                          style: TextStyle(
+                            color: Color(0xFFEE82EE),
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+
+                        const Text(
+                          '₹69 for 2 months',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Text(
+                          '₹69/month after',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 11,
+                          ),
+                        ),
+                        // const SizedBox(height: 12),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 6.0),
+                          child: Container(
+                            height: 0.2,
+                            width: double.infinity, // You can adjust based on your design
+                            color: Colors.white,
+                          ),
+                        ),
+
+                        const Text('• 1 verified Premium accounts',
+                            style: TextStyle(color: Colors.white)),
+
+                        const Text('• Discount for eligible students',
+                            style: TextStyle(color: Colors.white)),
+                        const Text('• Cancel anytime',
+                            style: TextStyle(color: Colors.white)),
+
+                        const SizedBox(height: 15),
+
+                        // Pink Button
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFEE82EE),
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              elevation: 0,
+                            ),
+                            child: const Text(
+                              'Try 2 months for ₹69',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+
+                        // Transparent Button with White Border
+                        // SizedBox(
+                        //   width: double.infinity,
+                        //   child: OutlinedButton(
+                        //     onPressed: () {},
+                        //     style: OutlinedButton.styleFrom(
+                        //       side: const BorderSide(color: Colors.white, width: 1),
+                        //       shape: RoundedRectangleBorder(
+                        //         borderRadius: BorderRadius.circular(40),
+                        //       ),
+                        //       padding: const EdgeInsets.symmetric(vertical: 14),
+                        //     ),
+                        //     child: const Text(
+                        //       'One-time payment',
+                        //       style: TextStyle(
+                        //         fontSize: 16,
+                        //         color: Colors.white,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                        SizedBox(height: 10,),
+                        Text('₹139 for 3 months, then ₹139 per month after.'
+                            'Offer only available \n if you haven’t tried Premium before.'
+                            'and you subscribe via Spotify.\n Offers via Google Play may differ.For up to 6 family memebers \n residing at the same address.Terms apply'
+                          ,style: TextStyle(color: Colors.grey,fontSize: 10),)
+                      ],
+                    ),
+                  ),
+
+                  // 🔹 Pink Top-Left Tag
+                  Positioned(
+                    top: 2,
+                    left: -1,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFEE82EE), // Pink color
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(8),
+
+                          bottomRight: Radius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        '₹179 for 2 months',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
-
-
-
-            // 🔹 Features List
 
 
 
@@ -289,24 +847,19 @@ class SpotifyPremiumOffer extends StatelessWidget {
   }
 
   // 🔹 Helper Widget for Features
-//   static Widget _buildFeature(IconData icon, String text) {
-//     return Padding(
-//       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-//       child: Row(
-//         children: [
-//           Icon(icon, color: Colors.white, size: 22),
-//           const SizedBox(width: 12),
-//           Expanded(
-//             child: Text(
-//               text,
-//               style: const TextStyle(
-//                 color: Colors.white,
-//                 fontSize: 16,
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
+  Widget _buildFeature(IconData icon, String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.white, size: 20),
+          const SizedBox(width: 10),
+          Text(
+            text,
+            style: const TextStyle(color: Colors.white, fontSize: 12),
+          ),
+        ],
+      ),
+    );
+  }
 }
