@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'PodcastPage.dart';
+import 'home.dart';
+
 class Musicpage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -12,28 +15,34 @@ class Musicpage extends StatelessWidget{
           children: [
             // Profile Icon
             CircleAvatar(
-              radius: 17,
-              backgroundImage: NetworkImage(
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMg1w6m19JxLpqvM6404OIeFiFc4vj2lqAvw&s',
-              ),
-              backgroundColor: Colors.transparent,
+              radius: 18,
+              backgroundColor: Colors.brown,
+              backgroundImage: AssetImage('assets/images/slett.png'),
             ),
 
             SizedBox(width: 10),
 
             // "All" Button
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-              decoration: BoxDecoration(
-                color: Color(0xFF1ED760),
-                borderRadius: BorderRadius.circular(18),
-              ),
-              child: Text(
-                'All',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 17,
-                  fontWeight: FontWeight.normal,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Color(0xFF1ED760),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: Text(
+                  'All',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 17,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
               ),
             ),
@@ -68,21 +77,29 @@ class Musicpage extends StatelessWidget{
             SizedBox(width: 10),
 
             // "Podcasts" Button
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-              decoration: BoxDecoration(
-                color: Colors.white10,
-                borderRadius: BorderRadius.circular(18),
-              ),
-              child: Text(
-                'Podcasts',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.normal,
-                ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PodcastPage()),
+            );
+          },
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.white10,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Text(
+              'Podcast',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 17,
+                fontWeight: FontWeight.normal,
               ),
             ),
+          ),
+        ),
           ],
         ),
       ),
